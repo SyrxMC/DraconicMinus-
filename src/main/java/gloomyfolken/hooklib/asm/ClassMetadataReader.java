@@ -13,6 +13,7 @@ import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 
 public class ClassMetadataReader {
+
     private static Method m;
 
     static {
@@ -137,8 +138,8 @@ public class ClassMetadataReader {
         }
 
         @Override
-        public void visit(int version, int access, String name, String signature,
-                          String superName, String[] interfaces) {
+        public void visit(int version, int access, String name, String signature, String superName,
+                String[] interfaces) {
             this.superClassName = superName;
         }
     }
@@ -183,12 +184,18 @@ public class ClassMetadataReader {
             return Type.getMethodType(desc);
         }
 
-        @Override public String toString() {
-            return "MethodReference{" +
-                    "owner='" + owner + '\'' +
-                    ", name='" + name + '\'' +
-                    ", desc='" + desc + '\'' +
-                    '}';
+        @Override
+        public String toString() {
+            return "MethodReference{" + "owner='"
+                    + owner
+                    + '\''
+                    + ", name='"
+                    + name
+                    + '\''
+                    + ", desc='"
+                    + desc
+                    + '\''
+                    + '}';
         }
     }
 

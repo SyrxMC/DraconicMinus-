@@ -47,8 +47,10 @@ public class TypeHelper {
     }
 
     static Object getStackMapFrameEntry(Type type) {
-        if (type == Type.BOOLEAN_TYPE || type == Type.BYTE_TYPE || type == Type.SHORT_TYPE ||
-                type == Type.CHAR_TYPE || type == Type.INT_TYPE) {
+        if (type == Type.BOOLEAN_TYPE || type == Type.BYTE_TYPE
+                || type == Type.SHORT_TYPE
+                || type == Type.CHAR_TYPE
+                || type == Type.INT_TYPE) {
             return Opcodes.INTEGER;
         }
         if (type == Type.FLOAT_TYPE) {

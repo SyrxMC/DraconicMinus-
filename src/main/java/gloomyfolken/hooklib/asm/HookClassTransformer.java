@@ -43,14 +43,12 @@ public class HookClassTransformer {
             logger.debug("Injecting hooks into class " + className);
             try {
                 /*
-                 Начиная с седьмой версии джавы, сильно изменился процесс верификации байткода.
-                 Ради этого приходится включать автоматическую генерацию stack map frame'ов.
-                 На более старых версиях байткода это лишняя трата времени.
-                 Подробнее здесь: http://stackoverflow.com/questions/25109942
-                */
+                 * Начиная с седьмой версии джавы, сильно изменился процесс верификации байткода. Ради этого приходится
+                 * включать автоматическую генерацию stack map frame'ов. На более старых версиях байткода это лишняя
+                 * трата времени. Подробнее здесь: http://stackoverflow.com/questions/25109942
+                 */
                 int majorVersion = ((bytecode[6] & 0xFF) << 8) | (bytecode[7] & 0xFF);
                 boolean java7 = majorVersion > 50;
-
 
                 ClassReader cr = new ClassReader(bytecode);
                 ClassWriter cw = createClassWriter(java7 ? ClassWriter.COMPUTE_FRAMES : ClassWriter.COMPUTE_MAXS);
@@ -82,9 +80,8 @@ public class HookClassTransformer {
     }
 
     /**
-     * Создает ClassVisitor для списка хуков.
-     * Метод можно переопределить, если в ClassVisitor'e нужна своя логика для проверки,
-     * является ли метод целевым (isTargetMethod())
+     * Создает ClassVisitor для списка хуков. Метод можно переопределить, если в ClassVisitor'e нужна своя логика для
+     * проверки, является ли метод целевым (isTargetMethod())
      *
      * @param cw    ClassWriter, который должен стоять в цепочке после этого ClassVisitor'a
      * @param hooks Список хуков, вставляемых в класс
@@ -95,11 +92,11 @@ public class HookClassTransformer {
     }
 
     /**
-     * Создает ClassWriter для сохранения трансформированного класса.
-     * Метод можно переопределить, если в ClassWriter'e нужна своя реализация метода getCommonSuperClass().
-     * Стандартная реализация работает для уже загруженных классов и для классов, .class файлы которых есть
-     * в classpath, но они ещё не загружены. Во втором случае происходит загрузка (но не инициализация) классов.
-     * Если загрузка классов является проблемой, то можно воспользоваться SafeClassWriter.
+     * Создает ClassWriter для сохранения трансформированного класса. Метод можно переопределить, если в ClassWriter'e
+     * нужна своя реализация метода getCommonSuperClass(). Стандартная реализация работает для уже загруженных классов и
+     * для классов, .class файлы которых есть в classpath, но они ещё не загружены. Во втором случае происходит загрузка
+     * (но не инициализация) классов. Если загрузка классов является проблемой, то можно воспользоваться
+     * SafeClassWriter.
      *
      * @param flags Список флагов, которые нужно передать в конструктор ClassWriter'a
      * @return ClassWriter, сохраняющий трансформированный класс

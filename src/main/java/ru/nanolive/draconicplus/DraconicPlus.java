@@ -1,6 +1,5 @@
 package ru.nanolive.draconicplus;
 
-import codechicken.nei.api.API;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -15,7 +14,6 @@ import net.minecraft.item.ItemStack;
 import ru.nanolive.draconicplus.common.blocks.DraconicBlocks;
 import ru.nanolive.draconicplus.common.fusioncrafting.client.gui.DPGuiHandler;
 import ru.nanolive.draconicplus.common.fusioncrafting.minetweaker.FusionCrafting;
-import ru.nanolive.draconicplus.common.fusioncrafting.nei.FusionCraftingNEI;
 import ru.nanolive.draconicplus.common.handlers.RecipeHandler;
 import ru.nanolive.draconicplus.network.PacketDispatcher;
 import ru.nanolive.draconicplus.proxy.CommonProxy;
@@ -47,7 +45,7 @@ public class DraconicPlus
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-    	PacketDispatcher.preInit();
+		PacketDispatcher.preInit();
 		proxy.preInit(event);
 		
     }

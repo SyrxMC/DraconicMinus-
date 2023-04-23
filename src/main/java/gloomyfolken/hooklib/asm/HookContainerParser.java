@@ -22,13 +22,13 @@ public class HookContainerParser {
     private boolean currentMethodPublicStatic;
 
     /*
-    Ключ - название значения аннотации
+     * Ключ - название значения аннотации
      */
     private HashMap<String, Object> annotationValues;
 
     /*
-    Ключ - номер параметра, значение - номер локальной переменной для перехвата
-    или -1 для перехвата значения наверху стека.
+     * Ключ - номер параметра, значение - номер локальной переменной для перехвата или -1 для перехвата значения наверху
+     * стека.
      */
     private HashMap<Integer, Integer> parameterAnnotations = new HashMap<Integer, Integer>();
 
@@ -71,14 +71,16 @@ public class HookContainerParser {
         }
 
         if (argumentTypes.length < 1) {
-            invalidHook("Hook method has no parameters. First parameter of a " +
-                    "hook method must belong the type of the target class.");
+            invalidHook(
+                    "Hook method has no parameters. First parameter of a "
+                            + "hook method must belong the type of the target class.");
             return;
         }
 
         if (argumentTypes[0].getSort() != Type.OBJECT) {
-            invalidHook("First parameter of the hook method is not an object. First parameter of a " +
-                    "hook method must belong the type of the target class.");
+            invalidHook(
+                    "First parameter of the hook method is not an object. First parameter of a "
+                            + "hook method must belong the type of the target class.");
             return;
         }
 
@@ -153,9 +155,9 @@ public class HookContainerParser {
             invalidHook("Hook method must return boolean if returnCodition is ON_TRUE.");
             return;
         }
-        if ((returnCondition == ReturnCondition.ON_NULL || returnCondition == ReturnCondition.ON_NOT_NULL) &&
-                methodType.getReturnType().getSort() != Type.OBJECT &&
-                methodType.getReturnType().getSort() != Type.ARRAY) {
+        if ((returnCondition == ReturnCondition.ON_NULL || returnCondition == ReturnCondition.ON_NOT_NULL)
+                && methodType.getReturnType().getSort() != Type.OBJECT
+                && methodType.getReturnType().getSort() != Type.ARRAY) {
             invalidHook("Hook method must return object if returnCodition is ON_NULL or ON_NOT_NULL.");
             return;
         }
@@ -183,15 +185,15 @@ public class HookContainerParser {
         return null;
     }
 
-
     private class HookClassVisitor extends ClassVisitor {
+
         public HookClassVisitor() {
             super(Opcodes.ASM5);
         }
 
         @Override
-        public void visit(int version, int access, String name, String signature,
-                          String superName, String[] interfaces) {
+        public void visit(int version, int access, String name, String signature, String superName,
+                String[] interfaces) {
             currentClassName = name.replace('/', '.');
         }
 
@@ -226,6 +228,7 @@ public class HookContainerParser {
             }
             if (LOCAL_DESC.equals(desc)) {
                 return new AnnotationVisitor(Opcodes.ASM5) {
+
                     @Override
                     public void visit(String name, Object value) {
                         parameterAnnotations.put(parameter, (Integer) value);

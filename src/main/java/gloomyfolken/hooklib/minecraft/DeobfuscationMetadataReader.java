@@ -3,10 +3,11 @@ package gloomyfolken.hooklib.minecraft;
 import java.io.IOException;
 import java.lang.reflect.Method;
 
-import cpw.mods.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
-import gloomyfolken.hooklib.asm.ClassMetadataReader;
 import net.minecraft.launchwrapper.Launch;
 import net.minecraft.launchwrapper.LaunchClassLoader;
+
+import cpw.mods.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
+import gloomyfolken.hooklib.asm.ClassMetadataReader;
 
 public class DeobfuscationMetadataReader extends ClassMetadataReader {
 
@@ -14,8 +15,8 @@ public class DeobfuscationMetadataReader extends ClassMetadataReader {
 
     static {
         try {
-            runTransformers = LaunchClassLoader.class.getDeclaredMethod("runTransformers",
-                    String.class, String.class, byte[].class);
+            runTransformers = LaunchClassLoader.class
+                    .getDeclaredMethod("runTransformers", String.class, String.class, byte[].class);
             runTransformers.setAccessible(true);
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,6 +1,5 @@
 package gloomyfolken.hooklib.asm;
 
-
 public enum ReturnValue {
 
     VOID,

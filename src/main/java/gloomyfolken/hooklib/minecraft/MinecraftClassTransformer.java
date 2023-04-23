@@ -9,12 +9,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.minecraft.launchwrapper.IClassTransformer;
+
 import org.objectweb.asm.ClassWriter;
 
 import gloomyfolken.hooklib.asm.AsmHook;
 import gloomyfolken.hooklib.asm.HookClassTransformer;
 import gloomyfolken.hooklib.asm.HookInjectorClassVisitor;
-import net.minecraft.launchwrapper.IClassTransformer;
 
 public class MinecraftClassTransformer extends HookClassTransformer implements IClassTransformer {
 
@@ -69,6 +70,7 @@ public class MinecraftClassTransformer extends HookClassTransformer implements I
     @Override
     protected HookInjectorClassVisitor createInjectorClassVisitor(ClassWriter cw, List<AsmHook> hooks) {
         return new HookInjectorClassVisitor(this, cw, hooks) {
+
             @Override
             protected boolean isTargetMethod(AsmHook hook, String name, String desc) {
                 if (HookLibPlugin.getObfuscated()) {

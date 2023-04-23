@@ -28,7 +28,7 @@ public class DiskHookLib {
         }
         for (File file : getFiles(".class", untransformedDir)) {
             byte[] bytes = IOUtils.toByteArray(new FileInputStream(file));
-            String className = ""; 
+            String className = "";
             byte[] newBytes = transformer.transform(className, bytes);
         }
     }
@@ -47,6 +47,5 @@ public class DiskHookLib {
         }
         return files;
     }
-
 
 }

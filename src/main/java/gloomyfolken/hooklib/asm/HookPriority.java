@@ -2,10 +2,10 @@ package gloomyfolken.hooklib.asm;
 
 public enum HookPriority {
 
-    HIGHEST, 
+    HIGHEST,
     HIGH,
     NORMAL,
     LOW,
-    LOWEST 
+    LOWEST
 
 }

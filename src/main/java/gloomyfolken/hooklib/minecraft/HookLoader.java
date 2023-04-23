@@ -19,8 +19,8 @@ public abstract class HookLoader implements IFMLLoadingPlugin {
     }
 
     public static HookClassTransformer getTransformer() {
-        return PrimaryClassTransformer.instance.registeredSecondTransformer ?
-                MinecraftClassTransformer.instance : PrimaryClassTransformer.instance;
+        return PrimaryClassTransformer.instance.registeredSecondTransformer ? MinecraftClassTransformer.instance
+                : PrimaryClassTransformer.instance;
     }
 
     public static void registerHook(AsmHook hook) {
@@ -34,8 +34,8 @@ public abstract class HookLoader implements IFMLLoadingPlugin {
     public static ClassMetadataReader getDeobfuscationMetadataReader() {
         return deobfuscationMetadataReader;
     }
-	
-	static DeobfuscationTransformer getDeobfuscationTransformer() {
+
+    static DeobfuscationTransformer getDeobfuscationTransformer() {
         if (HookLibPlugin.getObfuscated() && deobfuscationTransformer == null) {
             deobfuscationTransformer = new DeobfuscationTransformer();
         }

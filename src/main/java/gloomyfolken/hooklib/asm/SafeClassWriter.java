@@ -23,9 +23,8 @@ public class SafeClassWriter extends ClassWriter {
         if (i == 0) {
             return "java/lang/Object";
         } else {
-            return superClasses1.get(i-1);
+            return superClasses1.get(i - 1);
         }
     }
-
 
 }

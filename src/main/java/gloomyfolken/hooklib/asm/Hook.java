@@ -16,17 +16,16 @@ public @interface Hook {
 
     boolean createMethod() default false;
 
-
     boolean isMandatory() default false;
 
     boolean injectOnExit() default false;
 
-    @Deprecated int injectOnLine() default -1;
+    @Deprecated
+    int injectOnLine() default -1;
 
     String returnAnotherMethod() default "";
 
     boolean returnNull() default false;
-
 
     boolean booleanReturnConstant() default false;
 
@@ -48,6 +47,7 @@ public @interface Hook {
 
     @Target(ElementType.PARAMETER)
     @interface LocalVariable {
+
         int value();
     }
 

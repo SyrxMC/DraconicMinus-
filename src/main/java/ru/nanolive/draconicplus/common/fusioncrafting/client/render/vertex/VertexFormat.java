@@ -171,7 +171,6 @@ public class VertexFormat {
 
         // $FF: synthetic field
         static final int[] field_177382_a = new int[VertexFormatElement.EnumUsage.values().length];
-        private static final String __OBFID = "CL_00002400";
 
         static {
             try {

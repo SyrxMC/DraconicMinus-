@@ -8,7 +8,7 @@
       }
     ]
   },
-  
+
   "fusion_rotation": {
     "category": "master",
     "sounds": [
@@ -17,6 +17,15 @@
         "stream": true
       }
     ]
+  },
+
+  "energy_bolt": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "energy_bolt",
+        "stream": true
+      }
+    ]
   }
 }
-

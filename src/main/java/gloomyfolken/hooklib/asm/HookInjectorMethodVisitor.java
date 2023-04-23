@@ -14,8 +14,8 @@ public abstract class HookInjectorMethodVisitor extends AdviceAdapter {
     public final Type methodType;
     public final boolean isStatic;
 
-    protected HookInjectorMethodVisitor(MethodVisitor mv, int access, String name, String desc,
-                                        AsmHook hook, HookInjectorClassVisitor cv) {
+    protected HookInjectorMethodVisitor(MethodVisitor mv, int access, String name, String desc, AsmHook hook,
+            HookInjectorClassVisitor cv) {
         super(Opcodes.ASM5, mv, access, name, desc);
         this.hook = hook;
         this.cv = cv;
@@ -38,8 +38,8 @@ public abstract class HookInjectorMethodVisitor extends AdviceAdapter {
 
     public static class MethodEnter extends HookInjectorMethodVisitor {
 
-        public MethodEnter(MethodVisitor mv, int access, String name, String desc,
-                           AsmHook hook, HookInjectorClassVisitor cv) {
+        public MethodEnter(MethodVisitor mv, int access, String name, String desc, AsmHook hook,
+                HookInjectorClassVisitor cv) {
             super(mv, access, name, desc, hook, cv);
         }
 
@@ -52,8 +52,8 @@ public abstract class HookInjectorMethodVisitor extends AdviceAdapter {
 
     public static class MethodExit extends HookInjectorMethodVisitor {
 
-        public MethodExit(MethodVisitor mv, int access, String name, String desc,
-                          AsmHook hook, HookInjectorClassVisitor cv) {
+        public MethodExit(MethodVisitor mv, int access, String name, String desc, AsmHook hook,
+                HookInjectorClassVisitor cv) {
             super(mv, access, name, desc, hook, cv);
         }
 
@@ -69,8 +69,8 @@ public abstract class HookInjectorMethodVisitor extends AdviceAdapter {
 
         private int lineNumber;
 
-        public LineNumber(MethodVisitor mv, int access, String name, String desc,
-                          AsmHook hook, HookInjectorClassVisitor cv, int lineNumber) {
+        public LineNumber(MethodVisitor mv, int access, String name, String desc, AsmHook hook,
+                HookInjectorClassVisitor cv, int lineNumber) {
             super(mv, access, name, desc, hook, cv);
             this.lineNumber = lineNumber;
         }
